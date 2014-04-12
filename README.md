@@ -1,7 +1,7 @@
-Ember load initializers
+ember-cli shims
 ===========
 
 About
 -----
 
-Ember loadInitializers is a tiny package to autoload your initializer files in EAK and ember-cli.
+ember-cli shims contain all the shims used in ember-cli.
