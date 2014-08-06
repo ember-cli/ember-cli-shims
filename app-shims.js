@@ -15,4 +15,12 @@ define('ember-data', [], function() {
     'default': DS
   };
 });
+
+define('jquery', [], function() {
+  "use strict";
+
+  return {
+    'default': $
+  };
+});
 })();
