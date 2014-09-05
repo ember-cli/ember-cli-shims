@@ -1,43 +1,32 @@
 (function() {
-  "use strict";
-/* global define, Ember */
-define('ember', [], function() {
-  "use strict";
+/* globals define, Ember, DS, jQuery */
 
-  return {
-    'default': Ember
+  var shims = {
+    'ember': {
+      'default': Ember
+    },
+    'ember/computed': {
+      'default': Ember.computed
+    },
+
+    'ember-data': {
+      'default': DS
+    },
+    'jquery': {
+      'default': jQuery
+    }
   };
-});
 
-define('ember/computed', [], function() {
-  "use strict";
-
-  var exports = {
-    'default': Ember.computed
-  };
-
+  // populate `ember/computed` named exports
   for (var key in Ember.computed) {
-    exports[key] = Ember.computed[key];
+    shims['ember/computed'][key] = Ember.computed[key];
   }
 
-  return exports;
-});
+  for (var moduleName in shims) {
+    define(moduleName, [], function() {
+      'use strict';
 
-
-define('ember-data', [], function() {
-  "use strict";
-
-  return {
-    'default': DS
-  };
-});
-
-define('jquery', [], function() {
-  "use strict";
-
-  return {
-    'default': jQuery
-  };
-});
-
+      return shims[moduleName];
+    });
+  }
 })();
