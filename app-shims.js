@@ -1,26 +1,24 @@
 (function() {
-/* global define, Ember */
-define('ember', [], function() {
-  "use strict";
+/* globals define, Ember, DS, jQuery */
 
-  return {
-    'default': Ember
+  var shims = {
+    'ember': {
+      'default': Ember
+    },
+    'ember-data': {
+      'default': DS
+    },
+    'jquery': {
+      'default': jQuery
+    }
   };
-});
 
-define('ember-data', [], function() {
-  "use strict";
+  for (var moduleName in shims) {
+    define(moduleName, [], function() {
+      'use strict';
 
-  return {
-    'default': DS
-  };
-});
+      return shims[moduleName];
+    });
+  }
 })();
 
-define('jquery', [], function() {
-  "use strict";
-
-  return {
-    'default': jQuery
-  };
-});
