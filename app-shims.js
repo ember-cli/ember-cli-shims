@@ -1,24 +1,30 @@
 (function() {
 /* globals define, Ember, DS, jQuery */
 
+  var _DS = typeof DS === 'object' ? DS : null;
+
   var shims = {
     'ember': {
       'default': Ember
     },
     'ember-data': {
-      'default': DS
+      'default': _DS
     },
     'jquery': {
       'default': jQuery
     }
   };
 
-  for (var moduleName in shims) {
-    define(moduleName, [], function() {
+  function generateModule(name, values) {
+    define(name, [], function() {
       'use strict';
 
-      return shims[moduleName];
+      return values;
     });
+  }
+
+  for (var moduleName in shims) {
+    generateModule(moduleName, shims[moduleName]);
   }
 })();
 
