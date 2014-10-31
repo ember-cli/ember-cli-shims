@@ -6,7 +6,18 @@
       'ember': {
         'default': Ember,
         'get': Ember.get,
-        'set': Ember.set
+        'set': Ember.set,
+        'on': Ember.on,
+        'keys': Ember.keys,
+        'bind': Ember.bind,
+        'assert': Ember.assert,
+        'observer': Ember.observer,
+        'setProperties': Ember.setProperties,
+        'isArray': Ember.isArray,
+        'isBlank': Ember.isBlank,
+        'isEmpty': Ember.isEmpty,
+        'isNone': Ember.isNone,
+        'isPresent': Ember.isPresent
       },
       'ember/computed': {
         'default': Ember.computed
