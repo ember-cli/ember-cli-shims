@@ -54,46 +54,24 @@
   }
 
   function processEmberDataShims() {
-    if (typeof DS !== 'object') { return; }
-
     var shims = {
-      'ember-data': {
-        'default': DS
-      },
-      'ember-data/model': {
-        'default': DS.Model
-      },
-      'ember-data/serializers/rest': {
-        'default': DS.RESTSerializer
-      },
-      'ember-data/serializers/active-model': {
-        'default': DS.ActiveModelSerializer
-      },
-      'ember-data/serializers/json': {
-        'default': DS.JSONSerializer
-      },
-      'ember-data/adapters/rest': {
-        'default': DS.RESTAdapter
-      },
-      'ember-data/adapter': {
-        'default': DS.Adapter
-      },
-      'ember-data/adapters/active-model': {
-        'default': DS.ActiveModelAdapter
-      },
-      'ember-data/serializers/json': {
-        'default': DS.JSONSerializer
-      },
-      'ember-data/store': {
-        'default': DS.Store
-      },
-      'ember-data/transform': {
-        'default': DS.Transform
-      }
+      'ember-data':                          '',
+      'ember-data/model':                    'Model',
+      'ember-data/serializers/rest':         'RESTSerializer',
+      'ember-data/serializers/active-model': 'ActiveModelSerializer',
+      'ember-data/serializers/json':         'JSONSerializer',
+      'ember-data/adapters/rest':            'RESTAdapter',
+      'ember-data/adapter':                  'Adapter',
+      'ember-data/adapters/active-model':    'ActiveModelAdapter',
+      'ember-data/serializers/json':         'JSONSerializer',
+      'ember-data/store':                    'Store',
+      'ember-data/transform':                'Transform',
+      'ember-data/attr':                     'attr',
+      'ember-data/relationships':            ['hasMany', 'belongsTo']
     };
 
     for (var moduleName in shims) {
-      generateModule(moduleName, shims[moduleName]);
+      generateLazyModule('DS', moduleName, shims[moduleName]);
     }
   }
 
@@ -102,6 +80,24 @@
       'use strict';
 
       return values;
+    });
+  }
+
+  function generateLazyModule(namespace, name, globalName) {
+    define(name, [], function() {
+      'use strict';
+
+      var exportObject = {};
+
+      if (typeof globalName === 'object') {
+        for (var i = 0, l = globalName.length; i < l; i++) {
+          exportObject[globalName[i]] = window[namespace][globalName[i]];
+        }
+      } else {
+        exportObject['default'] = (globalName !== '') ? window[namespace][globalName] : window[namespace];
+      }
+
+      return exportObject;
     });
   }
 
