@@ -5,7 +5,7 @@
     "test-shims.js"
   ],
   "version": "0.0.3",
-  "homepage": "https://github.com/stefanpenner/ember-cli-shims",
+  "homepage": "https://github.com/ember-cli/ember-cli-shims",
   "authors": [
     "Stefan Penner <stefan.penner@gmail.com>",
     "Manuel Wiedenmann <manuel@funkensturm.de>"

@@ -1,8 +1,1 @@
-/* global define, QUnit */
-define('qunit', [], function() {
-  "use strict";
-
-  return {
-    'default': QUnit
-  };
-});
+// leaving this file so older ember-cli-qunit versions do not blow up
