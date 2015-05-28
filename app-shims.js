@@ -5,7 +5,6 @@
     var shims = {
       // TODO:
       // - Ember.Copyable
-      // - Ember.on
       // - Ember.Handlebars.registerBoundHelper
 
       'ember': {
@@ -79,6 +78,9 @@
       },
       'ember-evented': {
         'default': Ember.Evented
+      },
+      'ember-evented/on': {
+        'default': Ember.on
       },
       'ember-globals-resolver': {
         'default': Ember.DefaultResolver
