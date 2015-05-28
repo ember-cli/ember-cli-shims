@@ -172,7 +172,6 @@
         'once':         Ember.run.once,
         'schedule':     Ember.run.schedule,
         'scheduleOnce': Ember.run.scheduleOnce,
-        'sync':         Ember.run.sync,
         'throttle':     Ember.run.throttle
       },
       'ember-service': {
@@ -207,17 +206,27 @@
       'ember-view': {
         'default': Ember.View
       },
-      'ember-view/collection': {
+      'ember-views/collection': {
         'default': Ember.CollectionView
       },
-      'ember-view/container': {
+      'ember-views/container': {
         'default': Ember.ContainerView
       }
     };
 
     // populate `ember/computed` named exports
     shims['ember-computed'] = {};
-    for (var key in Ember.computed) {
+    var computedMacros = [
+      "empty","notEmpty", "none", "not", "bool", "match",
+      "equal", "gt", "gte", "lt", "lte", "alias", "oneWay",
+      "reads", "readOnly", "defaultTo", "deprecatingAlias",
+      "and", "or", "any", "collect", "sum", "min", "max",
+      "map", "sort", "setDiff", "mapBy", "mapProperty",
+      "filter", "filterBy", "filterProperty", "uniq",
+      "union", "intersect"
+    ];
+    for (var i = 0, l = computedMacros.length; i < l; i++) {
+      var key = computedMacros[i];
       shims['ember-computed'][key] = Ember.computed[key];
     }
 
