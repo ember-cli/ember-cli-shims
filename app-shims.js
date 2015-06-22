@@ -72,9 +72,9 @@
       'ember-globals-resolver': {
         'default': Ember.DefaultResolver
       },
-      'ember-handlebars': {
-        'default':  Ember.Handlebars,
-        'helper':   Ember.Handlebars.makeBoundHelper
+      'ember-helper': {
+        'default':  Ember.Helper,
+        'helper':   Ember.Helper.helper
       },
       'ember-instrumentation': {
         'instrument':   Ember.Instrumentation.instrument,
@@ -94,9 +94,6 @@
       'ember-map': {
         'default':      Ember.Map,
         'withDefault':  Ember.MapWithDefault
-      },
-      'ember-metal/computed': {
-        'default': Ember.computed
       },
       'ember-metal/destroy': {
         'default': Ember.destroy
@@ -195,7 +192,9 @@
     };
 
     // populate `ember/computed` named exports
-    shims['ember-computed'] = {};
+    shims['ember-computed'] = {
+      'default': Ember.computed
+    };
     var computedMacros = [
       "empty","notEmpty", "none", "not", "bool", "match",
       "equal", "gt", "gte", "lt", "lte", "alias", "oneWay",
