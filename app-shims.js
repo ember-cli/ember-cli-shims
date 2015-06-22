@@ -3,10 +3,6 @@
 
   function processEmberShims() {
     var shims = {
-      // TODO:
-      // - Ember.Copyable
-      // - Ember.Handlebars.registerBoundHelper
-
       'ember': {
         'default': Ember
       },
@@ -30,9 +26,6 @@
       'ember-components/checkbox': {
         'default': Ember.Checkbox
       },
-      'ember-components/select': {
-        'default': Ember.Select
-      },
       'ember-components/text-area': {
         'default': Ember.TextArea
       },
@@ -42,14 +35,8 @@
       'ember-controller': {
         'default': Ember.Controller
       },
-      'ember-controller/array': {
-        'default': Ember.ArrayController
-      },
       'ember-controller/inject': {
         'default': Ember.inject.controller
-      },
-      'ember-controller/object': {
-        'default': Ember.ObjectController
       },
       'ember-controller/proxy': {
         'default': Ember.ArrayProxy
@@ -95,13 +82,13 @@
         'subscribe':    Ember.Instrumentation.subscribe,
         'unsubscribe':  Ember.Instrumentation.unsubscribe
       },
-      'ember-location/hash': {
+      'ember-locations/hash': {
         'default': Ember.HashLocation
       },
-      'ember-location/history': {
+      'ember-locations/history': {
         'default': Ember.HistoryLocation
       },
-      'ember-location/none': {
+      'ember-locations/none': {
         'default': Ember.NoneLocation
       },
       'ember-map': {
@@ -204,15 +191,6 @@
         'isPresent':  Ember.isPresent,
         'tryInvoke':  Ember.tryInvoke,
         'typeOf':     Ember.typeOf
-      },
-      'ember-view': {
-        'default': Ember.View
-      },
-      'ember-views/collection': {
-        'default': Ember.CollectionView
-      },
-      'ember-views/container': {
-        'default': Ember.ContainerView
       }
     };
 
@@ -221,8 +199,8 @@
     var computedMacros = [
       "empty","notEmpty", "none", "not", "bool", "match",
       "equal", "gt", "gte", "lt", "lte", "alias", "oneWay",
-      "reads", "readOnly", "defaultTo", "deprecatingAlias",
-      "and", "or", "any", "collect", "sum", "min", "max",
+      "reads", "readOnly", "deprecatingAlias",
+      "and", "or", "collect", "sum", "min", "max",
       "map", "sort", "setDiff", "mapBy", "mapProperty",
       "filter", "filterBy", "filterProperty", "uniq",
       "union", "intersect"
