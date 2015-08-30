@@ -74,7 +74,7 @@
       },
       'ember-helper': {
         'default':  Ember.Helper,
-        'helper':   Ember.Helper.helper
+        'helper':   Ember.Helper && Ember.Helper.helper
       },
       'ember-instrumentation': {
         'instrument':   Ember.Instrumentation.instrument,
