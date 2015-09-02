@@ -282,5 +282,5 @@
 
   processEmberShims();
   processEmberDataShims();
-  generateModule('jquery', { 'default': jQuery });
+  generateModule('jquery', { 'default': window.jQuery });
 })();
