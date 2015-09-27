@@ -104,7 +104,8 @@
         'send':           Ember.sendEvent
       },
       'ember-metal/get': {
-        'default': Ember.get
+        'default': Ember.get,
+        'getProperties': Ember.getProperties
       },
       'ember-metal/mixin': {
         'default': Ember.Mixin
