@@ -284,4 +284,5 @@
   processEmberShims();
   processEmberDataShims();
   generateModule('jquery', { 'default': self.jQuery });
+  generateModule('rsvp', { 'default': Ember.RSVP });
 })();
