@@ -1,5 +1,5 @@
 (function() {
-/* globals define, Ember, DS, jQuery */
+/* globals define, Ember, jQuery */
 
   function processEmberShims() {
     var shims = {
