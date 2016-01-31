@@ -44,6 +44,40 @@
       'ember-controllers/sortable': {
         'default': Ember.SortableMixin
       },
+      'ember-computed': {
+        'default':          Ember.computed,
+        'alias':            Ember.computed.alias,
+        'and':              Ember.computed.and,
+        'bool':             Ember.computed.bool,
+        'collect':          Ember.computed.collect,
+        'deprecatingAlias': Ember.computed.deprecatingAlias,
+        'equal':            Ember.computed.equal,
+        'empty':            Ember.computed.empty,
+        'filter':           Ember.computed.filter,
+        'filterBy':         Ember.computed.filterBy,
+        'gt':               Ember.computed.gt,
+        'gte':              Ember.computed.gte,
+        'intersect':        Ember.computed.intersect,
+        'lt':               Ember.computed.lt,
+        'lte':              Ember.computed.lte,
+        'map':              Ember.computed.map,
+        'mapBy':            Ember.computed.mapBy,
+        'match':            Ember.computed.match,
+        'max':              Ember.computed.max,
+        'min':              Ember.computed.min,
+        'none':             Ember.computed.none,
+        'not':              Ember.computed.not,
+        'notEmpty':         Ember.computed.notEmpty,
+        'oneWay':           Ember.computed.oneWay,
+        'or':               Ember.computed.or,
+        'readOnly':         Ember.computed.readOnly,
+        'reads':            Ember.computed.reads,
+        'setDiff':          Ember.computed.setDiff,
+        'sort':             Ember.computed.sort,
+        'sum':              Ember.computed.sum,
+        'union':            Ember.computed.union,
+        'uniq':             Ember.computed.uniq
+      },
       'ember-debug': {
         'log':      Ember.debug,
         'inspect':  Ember.inspect,
@@ -190,24 +224,6 @@
         'typeOf':     Ember.typeOf
       }
     };
-
-    // populate `ember/computed` named exports
-    shims['ember-computed'] = {
-      'default': Ember.computed
-    };
-    var computedMacros = [
-      "empty","notEmpty", "none", "not", "bool", "match",
-      "equal", "gt", "gte", "lt", "lte", "alias", "oneWay",
-      "reads", "readOnly", "deprecatingAlias",
-      "and", "or", "collect", "sum", "min", "max",
-      "map", "sort", "setDiff", "mapBy", "mapProperty",
-      "filter", "filterBy", "filterProperty", "uniq",
-      "union", "intersect"
-    ];
-    for (var i = 0, l = computedMacros.length; i < l; i++) {
-      var key = computedMacros[i];
-      shims['ember-computed'][key] = Ember.computed[key];
-    }
 
     for (var moduleName in shims) {
       generateModule(moduleName, shims[moduleName]);
