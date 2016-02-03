@@ -242,8 +242,12 @@
     });
   }
 
+  if (self) {
+    jQuery = self.jQuery;
+  }
+
   processEmberShims();
   processTestShims();
-  generateModule('jquery', { 'default': self.jQuery });
+  generateModule('jquery', { 'default': jQuery });
   generateModule('rsvp', { 'default': Ember.RSVP });
 })();
