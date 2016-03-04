@@ -183,6 +183,7 @@
         'w':            Ember.String.w
       },
       'ember-utils': {
+        'K':          Ember.K,
         'isBlank':    Ember.isBlank,
         'isEmpty':    Ember.isEmpty,
         'isNone':     Ember.isNone,
