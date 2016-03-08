@@ -128,7 +128,8 @@
         'aliasMethod':  Ember.aliasMethod,
         'assert':       Ember.assert,
         'cacheFor':     Ember.cacheFor,
-        'copy':         Ember.copy
+        'copy':         Ember.copy,
+        'guidFor':      Ember.guidFor
       },
       'ember-object': {
         'default': Ember.Object
