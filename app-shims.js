@@ -133,7 +133,7 @@
         'default': Ember.Object
       },
       'ember-platform': {
-        'assign':         Ember.merge,
+        'assign':         Ember.assign,
         'create':         Ember.create,
         'defineProperty': Ember.platform.defineProperty,
         'hasAccessors':   Ember.platform.hasPropertyAccessors,
