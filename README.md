@@ -17,7 +17,7 @@ Simply import any of the shims as an ES6 module:
 
 ```
 import Component from 'ember-component';
-import run fron 'ember-runloop';
+import run from 'ember-runloop';
 import injectService from 'ember-service/inject';
 ```
 
