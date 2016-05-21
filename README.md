@@ -15,7 +15,7 @@ Usage
 
 Simply import any of the shims as an ES6 module:
 
-```
+```js
 import Component from 'ember-component';
 import run from 'ember-runloop';
 import injectService from 'ember-service/inject';
@@ -23,7 +23,7 @@ import injectService from 'ember-service/inject';
 
 Some of the shims have named exports (instead of/in addition to a `default` export):
 
-```
+```js
 import { assert, copy } from 'ember-metal/utils';
 import { debounce } from 'ember-runloop';
 import { isEmpty } from 'ember-utils';
@@ -44,6 +44,7 @@ This leads to the entire `Ember` module being imported into nearly every file:
 
 ```js
 import Ember from 'ember';
+
 export default Ember.Component.extend({
   foo: Ember.inject.service(),
   bar: Ember.computed.readOnly('foo.bar')
