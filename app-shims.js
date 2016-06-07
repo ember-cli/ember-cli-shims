@@ -214,6 +214,19 @@
     for (var moduleName in shims) {
       generateModule(moduleName, shims[moduleName]);
     }
+
+    define('ember-testing', ['ember'], function() {
+      'use strict';
+
+      return {
+        isTesting: function() {
+          return Ember.testing;
+        },
+        setTesting: function(value) {
+          Ember.testing = value;
+        }
+      };
+    });
   }
 
   function processTestShims() {
