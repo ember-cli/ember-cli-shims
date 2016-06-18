@@ -1,207 +1,227 @@
 (function() {
 /* globals define, Ember, jQuery */
 
+  var globalContext = (function() {
+      /* globals global, window, self */
+
+      // from lodash to catch fake globals
+      function checkGlobal(value) {
+        return (value && value.Object === Object) ? value : undefined;
+      }
+
+      // element ids can ruin global miss checks
+      function checkElementIdShadowing(value) {
+        return (value && value.nodeType === undefined) ? value : undefined;
+      }
+
+      // export real global
+      return checkGlobal(checkElementIdShadowing(typeof global === 'object' && global)) ||
+             checkGlobal(typeof self === 'object' && self) ||
+             checkGlobal(typeof window === 'object' && window) ||
+             new Function('return this')(); // eval outside of strict mode
+  })();
+
   function processEmberShims() {
     var shims = {
       'ember': {
-        'default': Ember
+        'default': globalContext.Ember
       },
       'ember-application': {
-        'default': Ember.Application
+        'default': globalContext.Ember.Application
       },
       'ember-array': {
-        'default': Ember.Array
+        'default': globalContext.Ember.Array
       },
       'ember-array/mutable': {
-        'default': Ember.MutableArray
+        'default': globalContext.Ember.MutableArray
       },
       'ember-array/utils': {
-        'A':            Ember.A,
-        'isEmberArray': Ember.isArray,
-        'wrap':         Ember.makeArray
+        'A':            globalContext.Ember.A,
+        'isEmberArray': globalContext.Ember.isArray,
+        'wrap':         globalContext.Ember.makeArray
       },
       'ember-component': {
-        'default': Ember.Component
+        'default': globalContext.Ember.Component
       },
       'ember-components/checkbox': {
-        'default': Ember.Checkbox
+        'default': globalContext.Ember.Checkbox
       },
       'ember-components/text-area': {
-        'default': Ember.TextArea
+        'default': globalContext.Ember.TextArea
       },
       'ember-components/text-field': {
-        'default': Ember.TextField
+        'default': globalContext.Ember.TextField
       },
       'ember-controller': {
-        'default': Ember.Controller
+        'default': globalContext.Ember.Controller
       },
       'ember-controller/inject': {
-        'default': Ember.inject.controller
+        'default': globalContext.Ember.inject.controller
       },
       'ember-controller/proxy': {
-        'default': Ember.ArrayProxy
+        'default': globalContext.Ember.ArrayProxy
       },
       'ember-controllers/sortable': {
-        'default': Ember.SortableMixin
+        'default': globalContext.Ember.SortableMixin
       },
       'ember-debug': {
-        'log':      Ember.debug,
-        'inspect':  Ember.inspect,
-        'run':      Ember.runInDebug,
-        'warn':     Ember.warn
+        'log':      globalContext.Ember.debug,
+        'inspect':  globalContext.Ember.inspect,
+        'run':      globalContext.Ember.runInDebug,
+        'warn':     globalContext.Ember.warn
       },
       'ember-debug/container-debug-adapter': {
-        'default': Ember.ContainerDebugAdapter
+        'default': globalContext.Ember.ContainerDebugAdapter
       },
       'ember-debug/data-adapter': {
-        'default': Ember.DataAdapter
+        'default': globalContext.Ember.DataAdapter
       },
       'ember-deprecations': {
-        'deprecate':      Ember.deprecate,
-        'deprecateFunc':  Ember.deprecateFunc
+        'deprecate':      globalContext.Ember.deprecate,
+        'deprecateFunc':  globalContext.Ember.deprecateFunc
       },
       'ember-enumerable': {
-        'default': Ember.Enumerable
+        'default': globalContext.Ember.Enumerable
       },
       'ember-evented': {
-        'default': Ember.Evented
+        'default': globalContext.Ember.Evented
       },
       'ember-evented/on': {
-        'default': Ember.on
+        'default': globalContext.Ember.on
       },
       'ember-globals-resolver': {
-        'default': Ember.DefaultResolver
+        'default': globalContext.Ember.DefaultResolver
       },
       'ember-helper': {
-        'default':  Ember.Helper,
-        'helper':   Ember.Helper && Ember.Helper.helper
+        'default':  globalContext.Ember.Helper,
+        'helper':   globalContext.Ember.Helper && globalContext.Ember.Helper.helper
       },
       'ember-instrumentation': {
-        'instrument':   Ember.Instrumentation.instrument,
-        'reset':        Ember.Instrumentation.reset,
-        'subscribe':    Ember.Instrumentation.subscribe,
-        'unsubscribe':  Ember.Instrumentation.unsubscribe
+        'instrument':   globalContext.Ember.Instrumentation.instrument,
+        'reset':        globalContext.Ember.Instrumentation.reset,
+        'subscribe':    globalContext.Ember.Instrumentation.subscribe,
+        'unsubscribe':  globalContext.Ember.Instrumentation.unsubscribe
       },
       'ember-locations/hash': {
-        'default': Ember.HashLocation
+        'default': globalContext.Ember.HashLocation
       },
       'ember-locations/history': {
-        'default': Ember.HistoryLocation
+        'default': globalContext.Ember.HistoryLocation
       },
       'ember-locations/none': {
-        'default': Ember.NoneLocation
+        'default': globalContext.Ember.NoneLocation
       },
       'ember-map': {
-        'default':      Ember.Map,
-        'withDefault':  Ember.MapWithDefault
+        'default':      globalContext.Ember.Map,
+        'withDefault':  globalContext.Ember.MapWithDefault
       },
       'ember-metal/destroy': {
-        'default': Ember.destroy
+        'default': globalContext.Ember.destroy
       },
       'ember-metal/events': {
-        'addListener':    Ember.addListener,
-        'removeListener': Ember.removeListener,
-        'send':           Ember.sendEvent
+        'addListener':    globalContext.Ember.addListener,
+        'removeListener': globalContext.Ember.removeListener,
+        'send':           globalContext.Ember.sendEvent
       },
       'ember-metal/get': {
-        'default': Ember.get,
-        'getProperties': Ember.getProperties
+        'default': globalContext.Ember.get,
+        'getProperties': globalContext.Ember.getProperties
       },
       'ember-metal/mixin': {
-        'default': Ember.Mixin
+        'default': globalContext.Ember.Mixin
       },
       'ember-metal/observer': {
-        'default':        Ember.observer,
-        'addObserver':    Ember.addObserver,
-        'removeObserver': Ember.removeObserver
+        'default':        globalContext.Ember.observer,
+        'addObserver':    globalContext.Ember.addObserver,
+        'removeObserver': globalContext.Ember.removeObserver
       },
       'ember-metal/on-load': {
-        'default':  Ember.onLoad,
-        'run':      Ember.runLoadHooks
+        'default':  globalContext.Ember.onLoad,
+        'run':      globalContext.Ember.runLoadHooks
       },
       'ember-metal/set': {
-        'default':        Ember.set,
-        'setProperties':  Ember.setProperties,
-        'trySet':         Ember.trySet
+        'default':        globalContext.Ember.set,
+        'setProperties':  globalContext.Ember.setProperties,
+        'trySet':         globalContext.Ember.trySet
       },
       'ember-metal/utils': {
-        'aliasMethod':  Ember.aliasMethod,
-        'assert':       Ember.assert,
-        'cacheFor':     Ember.cacheFor,
-        'copy':         Ember.copy,
-        'guidFor':      Ember.guidFor
+        'aliasMethod':  globalContext.Ember.aliasMethod,
+        'assert':       globalContext.Ember.assert,
+        'cacheFor':     globalContext.Ember.cacheFor,
+        'copy':         globalContext.Ember.copy,
+        'guidFor':      globalContext.Ember.guidFor
       },
       'ember-object': {
-        'default': Ember.Object
+        'default': globalContext.Ember.Object
       },
       'ember-owner/get': {
-        'default': Ember.getOwner
+        'default': globalContext.Ember.getOwner
       },
       'ember-owner/set': {
-        'default': Ember.setOwner
+        'default': globalContext.Ember.setOwner
       },
       'ember-platform': {
-        'assign':         Ember.merge,
-        'create':         Ember.create,
-        'defineProperty': Ember.platform.defineProperty,
-        'hasAccessors':   Ember.platform.hasPropertyAccessors,
-        'keys':           Ember.keys
+        'assign':         globalContext.Ember.merge,
+        'create':         globalContext.Ember.create,
+        'defineProperty': globalContext.Ember.platform.defineProperty,
+        'hasAccessors':   globalContext.Ember.platform.hasPropertyAccessors,
+        'keys':           globalContext.Ember.keys
       },
       'ember-route': {
-        'default': Ember.Route
+        'default': globalContext.Ember.Route
       },
       'ember-router': {
-        'default': Ember.Router
+        'default': globalContext.Ember.Router
       },
       'ember-runloop': {
-        'default':      Ember.run,
-        'begin':        Ember.run.begin,
-        'bind':         Ember.run.bind,
-        'cancel':       Ember.run.cancel,
-        'debounce':     Ember.run.debounce,
-        'end':          Ember.run.end,
-        'join':         Ember.run.join,
-        'later':        Ember.run.later,
-        'next':         Ember.run.next,
-        'once':         Ember.run.once,
-        'schedule':     Ember.run.schedule,
-        'scheduleOnce': Ember.run.scheduleOnce,
-        'throttle':     Ember.run.throttle
+        'default':      globalContext.Ember.run,
+        'begin':        globalContext.Ember.run.begin,
+        'bind':         globalContext.Ember.run.bind,
+        'cancel':       globalContext.Ember.run.cancel,
+        'debounce':     globalContext.Ember.run.debounce,
+        'end':          globalContext.Ember.run.end,
+        'join':         globalContext.Ember.run.join,
+        'later':        globalContext.Ember.run.later,
+        'next':         globalContext.Ember.run.next,
+        'once':         globalContext.Ember.run.once,
+        'schedule':     globalContext.Ember.run.schedule,
+        'scheduleOnce': globalContext.Ember.run.scheduleOnce,
+        'throttle':     globalContext.Ember.run.throttle
       },
       'ember-service': {
-        'default': Ember.Service
+        'default': globalContext.Ember.Service
       },
       'ember-service/inject': {
-        'default': Ember.inject.service
+        'default': globalContext.Ember.inject.service
       },
       'ember-set/ordered': {
-        'default': Ember.OrderedSet
+        'default': globalContext.Ember.OrderedSet
       },
       'ember-string': {
-        'camelize':     Ember.String.camelize,
-        'capitalize':   Ember.String.capitalize,
-        'classify':     Ember.String.classify,
-        'dasherize':    Ember.String.dasherize,
-        'decamelize':   Ember.String.decamelize,
-        'fmt':          Ember.String.fmt,
-        'htmlSafe':     Ember.String.htmlSafe,
-        'loc':          Ember.String.loc,
-        'underscore':   Ember.String.underscore,
-        'w':            Ember.String.w
+        'camelize':     globalContext.Ember.String.camelize,
+        'capitalize':   globalContext.Ember.String.capitalize,
+        'classify':     globalContext.Ember.String.classify,
+        'dasherize':    globalContext.Ember.String.dasherize,
+        'decamelize':   globalContext.Ember.String.decamelize,
+        'fmt':          globalContext.Ember.String.fmt,
+        'htmlSafe':     globalContext.Ember.String.htmlSafe,
+        'loc':          globalContext.Ember.String.loc,
+        'underscore':   globalContext.Ember.String.underscore,
+        'w':            globalContext.Ember.String.w
       },
       'ember-utils': {
-        'isBlank':    Ember.isBlank,
-        'isEmpty':    Ember.isEmpty,
-        'isNone':     Ember.isNone,
-        'isPresent':  Ember.isPresent,
-        'tryInvoke':  Ember.tryInvoke,
-        'typeOf':     Ember.typeOf
+        'isBlank':    globalContext.Ember.isBlank,
+        'isEmpty':    globalContext.Ember.isEmpty,
+        'isNone':     globalContext.Ember.isNone,
+        'isPresent':  globalContext.Ember.isPresent,
+        'tryInvoke':  globalContext.Ember.tryInvoke,
+        'typeOf':     globalContext.Ember.typeOf
       }
     };
 
     // populate `ember/computed` named exports
     shims['ember-computed'] = {
-      'default': Ember.computed
+      'default': globalContext.Ember.computed
     };
     var computedMacros = [
       "empty","notEmpty", "none", "not", "bool", "match",
@@ -214,7 +234,7 @@
     ];
     for (var i = 0, l = computedMacros.length; i < l; i++) {
       var key = computedMacros[i];
-      shims['ember-computed'][key] = Ember.computed[key];
+      shims['ember-computed'][key] = globalContext.Ember.computed[key];
     }
 
     for (var moduleName in shims) {
@@ -226,13 +246,13 @@
     if (Ember.Test) {
       var testShims = {
         'ember-test': {
-          'default': Ember.Test
+          'default': globalContext.Ember.Test
         },
         'ember-test/adapter': {
-          'default': Ember.Test.Adapter
+          'default': globalContext.Ember.Test.Adapter
         },
         'ember-test/qunit-adapter': {
-          'default': Ember.Test.QUnitAdapter
+          'default': globalContext.Ember.Test.QUnitAdapter
         }
       };
 
@@ -256,6 +276,6 @@
 
   processEmberShims();
   processTestShims();
-  generateModule('jquery', { 'default': self.jQuery });
-  generateModule('rsvp', { 'default': Ember.RSVP });
+  generateModule('jquery', { 'default': globalContext.jQuery });
+  generateModule('rsvp', { 'default': globalContext.Ember.RSVP });
 })();
