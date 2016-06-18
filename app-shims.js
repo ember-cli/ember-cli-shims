@@ -246,6 +246,10 @@
     define(name, [], function() {
       'use strict';
 
+      Object.defineProperty(values, '__esModule', {
+        value: true
+      });
+
       return values;
     });
   }
