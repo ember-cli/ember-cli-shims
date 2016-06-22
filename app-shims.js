@@ -141,7 +141,7 @@
         'default': Ember.setOwner
       },
       'ember-platform': {
-        'assign':         Ember.merge,
+        'assign':         Ember.assign || Ember.merge,
         'create':         Ember.create,
         'defineProperty': Ember.platform.defineProperty,
         'hasAccessors':   Ember.platform.hasPropertyAccessors,
