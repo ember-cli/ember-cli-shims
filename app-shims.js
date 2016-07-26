@@ -192,6 +192,7 @@
       'ember-utils': {
         'isBlank':    Ember.isBlank,
         'isEmpty':    Ember.isEmpty,
+        'isEqual':    Ember.isEqual,
         'isNone':     Ember.isNone,
         'isPresent':  Ember.isPresent,
         'tryInvoke':  Ember.tryInvoke,
