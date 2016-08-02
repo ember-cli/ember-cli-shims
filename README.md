@@ -2,7 +2,7 @@ Ember CLI Shims
 ===============
 
 
-NOTE: this repo is frozen until ember's ES6 public interface has been decided
+NOTE: this repo is frozen until ember's public module interface has been finalized.
 
 About
 -----
