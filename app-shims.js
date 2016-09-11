@@ -256,6 +256,17 @@
 
   processEmberShims();
   processTestShims();
+
+  var rsvpExport = { 'default': Ember.RSVP };
+  var rsvpModules = [
+    'cast', 'Promise', 'EventTarget', 'all', 'allSettled', 'race', 'hash',
+    'hashSettled', 'rethrow', 'defer', 'denodeify', 'configure', 'on', 'off',
+    'resolve', 'reject', 'async', 'map', 'filter'
+  ];
+  for (var i = 0; i < rsvpModules.length; i ++) {
+    var key = rsvpModules[i];
+    rsvpExport[key] = Ember.RSVP[key];
+  }
+  generateModule('rsvp', rsvpExport);
   generateModule('jquery', { 'default': self.jQuery });
-  generateModule('rsvp', { 'default': Ember.RSVP });
 })();
