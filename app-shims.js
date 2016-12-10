@@ -183,6 +183,7 @@
         'classify':     Ember.String.classify,
         'dasherize':    Ember.String.dasherize,
         'decamelize':   Ember.String.decamelize,
+        'pluralize':    Ember.String.pluralize,
         'fmt':          Ember.String.fmt,
         'htmlSafe':     Ember.String.htmlSafe,
         'loc':          Ember.String.loc,
