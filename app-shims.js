@@ -168,6 +168,12 @@
         'scheduleOnce': Ember.run.scheduleOnce,
         'throttle':     Ember.run.throttle
       },
+      'ember-runtime/get-owner': {
+        'default': Ember.getOwner
+      },
+      'ember-runtime/set-owner': {
+        'default': Ember.setOwner
+      },
       'ember-service': {
         'default': Ember.Service
       },
