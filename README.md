@@ -1,6 +1,8 @@
 Ember CLI Shims
 ===============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ember-cli/ember-cli-shims.svg)](https://greenkeeper.io/)
+
 
 NOTE: this repo is frozen until ember's public module interface has been finalized.
 
