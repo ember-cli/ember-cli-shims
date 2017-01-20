@@ -18,7 +18,7 @@ module.exports = {
     let emberCLIDep = checker.for('ember-cli', 'npm');
 
     let emberSourceIncludesLegacyShims = emberSourceDep.gt('2.11.0-alpha.0') && emberSourceDep.lt('2.11.0');
-    let emberCLISupportsOverridingShims = emberCLIDep.lt('2.11.0-beta.1');
+    let emberCLISupportsOverridingShims = emberCLIDep.gt('2.11.0-alpha.0');
 
     if (!emberCLISupportsOverridingShims) {
       throw new SilentError('To consume ember-cli-shims from npm you must be using ember-cli@2.11.0-beta.1 or greater.  Please update ember-cli to a newer version or remove ember-cli-shims from `package.json`.');
