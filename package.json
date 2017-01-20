@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "ember-cli-babel": "^5.2.1",
-    "ember-cli-version-checker": "^1.2.0"
+    "ember-cli-version-checker": "^1.2.0",
+    "silent-error": "^1.0.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",

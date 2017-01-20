@@ -1,6 +1,8 @@
 /* eslint-env node */
 'use strict';
 
+const SilentError = require('silent-error');
+
 module.exports = {
   name: 'ember-cli-shims',
 
@@ -18,6 +20,15 @@ module.exports = {
     let emberSourceIncludesLegacyShims = emberSourceDep.gt('2.11.0-alpha.0') && emberSourceDep.lt('2.11.0');
     let emberCLISupportsOverridingShims = emberCLIDep.lt('2.11.0-beta.1');
 
+    if (!emberCLISupportsOverridingShims) {
+      throw new SilentError('To consume ember-cli-shims from npm you must be using ember-cli@2.11.0-beta.1 or greater.  Please update ember-cli to a newer version or remove ember-cli-shims from `package.json`.');
+    }
+
+    let projectBowerDeps = this.project.bowerDependencies();
+    if (projectBowerDeps['ember-cli-shims']) {
+      throw new SilentError('Using ember-cli-shims as both a bower dependency and an npm dependency is not supported. Please remove `ember-cli-shims` from `bower.json`.');
+    }
+
     // ember-source@2.11.0-alpha and 2.11.0-beta series releases included
     // their own legacy shims system, so this import is not needed with
     // those ember-source versions
@@ -29,5 +40,6 @@ module.exports = {
         app.import(assetPath);
       }
     }
+
   }
 };
