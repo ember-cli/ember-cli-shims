@@ -17,7 +17,7 @@ module.exports = {
     var emberSourceDep = checker.for('ember-source', 'npm');
     var emberCLIDep = checker.for('ember-cli', 'npm');
 
-    var emberSourceIncludesLegacyShims = emberSourceDep.gt('2.11.0-alpha.0') && emberSourceDep.lt('2.11.0');
+    var emberSourceIncludesLegacyShims = emberSourceDep.gt('2.11.0-alpha.0') && emberSourceDep.lt('2.11.0-beta.5');
     var emberCLISupportsOverridingShims = emberCLIDep.gt('2.11.0-alpha.0');
 
     if (!emberCLISupportsOverridingShims) {
