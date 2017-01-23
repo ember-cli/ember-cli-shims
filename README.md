@@ -37,7 +37,7 @@ import { isEmpty } from 'ember-utils';
 Shims
 -----
 
-The [app-shims](https://github.com/ember-cli/ember-cli-shims/blob/master/app-shims.js) 
+The [app-shims](https://github.com/ember-cli/ember-cli-shims/blob/master/vendor/app-shims.js) 
 file provides a complete reference of all modules currently supported by this library. 
 
 Why?
