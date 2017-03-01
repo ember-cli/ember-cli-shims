@@ -3,9 +3,6 @@
 
   function processEmberShims() {
     var shims = {
-      'ember': {
-        'default': Ember
-      },
       'ember-application': {
         'default': Ember.Application
       },
@@ -218,7 +215,7 @@
     }
 
     for (var moduleName in shims) {
-      generateModule(moduleName, shims[moduleName]);
+      generateModule(moduleName, shims[moduleName], true);
     }
   }
 
@@ -242,9 +239,15 @@
     }
   }
 
-  function generateModule(name, values) {
+  function generateModule(name, values, deprecated) {
     define(name, [], function() {
       'use strict';
+
+      Ember.deprecate('Importing the module `' + name +'` has been deprecated. Please use the new module imports.', !deprecated, {
+        id: 'ember-cli-shims.deprecated-shims',
+        until: '3.0.0',
+        url: 'https://github.com/emberjs/rfcs/blob/master/text/0176-javascript-module-api.md'
+      });
 
       Object.defineProperty(values, '__esModule', {
         value: true
@@ -254,8 +257,7 @@
     });
   }
 
+  generateModule('ember', { default: Ember });
   processEmberShims();
   processTestShims();
-  generateModule('jquery', { 'default': self.jQuery });
-  generateModule('rsvp', { 'default': Ember.RSVP });
 })();
