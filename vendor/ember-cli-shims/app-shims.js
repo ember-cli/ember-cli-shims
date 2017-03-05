@@ -185,6 +185,7 @@
         'decamelize':   Ember.String.decamelize,
         'fmt':          Ember.String.fmt,
         'htmlSafe':     Ember.String.htmlSafe,
+        'isHTMLSafe':   Ember.String.isHTMLSafe,
         'loc':          Ember.String.loc,
         'underscore':   Ember.String.underscore,
         'w':            Ember.String.w
