@@ -1,8 +1,35 @@
 # Change Log
 
-## [Unreleased](https://github.com/ember-cli/ember-cli-shims/tree/HEAD)
+## [v1.1.0](https://github.com/ember-cli/ember-cli-shims/tree/v1.1.0) (2017-03-24)
+[Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v1.0.2...v1.1.0)
 
-[Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v0.1.3...HEAD)
+**Closed issues:**
+
+- Ember Build failing with 1.x versions [\#96](https://github.com/ember-cli/ember-cli-shims/issues/96)
+- An in-range update of loader.js is breaking the build 🚨 [\#90](https://github.com/ember-cli/ember-cli-shims/issues/90)
+
+**Merged pull requests:**
+
+- Update to Babel 6. [\#99](https://github.com/ember-cli/ember-cli-shims/pull/99) ([rwjblue](https://github.com/rwjblue))
+- Update ember-resolver to the latest version 🚀 [\#95](https://github.com/ember-cli/ember-cli-shims/pull/95) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+- chore\(package\): update loader.js to version 4.2.3 [\#94](https://github.com/ember-cli/ember-cli-shims/pull/94) ([rwjblue](https://github.com/rwjblue))
+- chore\(package\): update loader.js to version 4.2.0 [\#91](https://github.com/ember-cli/ember-cli-shims/pull/91) ([stefanpenner](https://github.com/stefanpenner))
+- Update ember-cli version. [\#87](https://github.com/ember-cli/ember-cli-shims/pull/87) ([rwjblue](https://github.com/rwjblue))
+- Typo fix for app-shims url in readme [\#85](https://github.com/ember-cli/ember-cli-shims/pull/85) ([cbroeren](https://github.com/cbroeren))
+- Fix readme link to app-shims file [\#84](https://github.com/ember-cli/ember-cli-shims/pull/84) ([cbroeren](https://github.com/cbroeren))
+
+## [v1.0.2](https://github.com/ember-cli/ember-cli-shims/tree/v1.0.2) (2017-01-21)
+[Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v1.0.1...v1.0.2)
+
+## [v1.0.1](https://github.com/ember-cli/ember-cli-shims/tree/v1.0.1) (2017-01-21)
+[Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v1.0.0...v1.0.1)
+
+**Merged pull requests:**
+
+- Add Greenkeeper badge 🌴 [\#83](https://github.com/ember-cli/ember-cli-shims/pull/83) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+
+## [v1.0.0](https://github.com/ember-cli/ember-cli-shims/tree/v1.0.0) (2017-01-20)
+[Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v0.1.3...v1.0.0)
 
 **Closed issues:**
 
