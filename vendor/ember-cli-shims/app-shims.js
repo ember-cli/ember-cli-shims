@@ -105,6 +105,7 @@
       },
       'ember-metal/get': {
         'default': Ember.get,
+        'getWithDefault': Ember.getWithDefault,
         'getProperties': Ember.getProperties
       },
       'ember-metal/mixin': {
