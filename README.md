@@ -90,6 +90,9 @@ the shims from `ECS` upstream, requiring little to no refactoring on the part of
 developers who have opted-in to this pattern early. Ultimately, the goal of this 
 library is to be replaced completely once Ember itself is an npm package/addon and exports its own modules.
 
+<!--[begin-apidocs]-->
+<!--[end-apidocs]-->
+
 License
 -------
 
