@@ -15,7 +15,8 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "update-readme": "node ./scripts/update-readme.js"
   },
   "dependencies": {
     "ember-cli-babel": "^6.0.0-beta.7",

@@ -1,4 +1,6 @@
 const ejs = require('ejs');
+const { readFileSync, openSync, writeFileSync } = require('fs');
+const { join } = require('path');
 
 function handlerFactory(path = '') {
   return {
@@ -46,7 +48,7 @@ function listEmberCliShims() {
   return defined;
 }
 
-// @TODO Sort shims, find better template
+// @TODO Sort shims before pushing into template
 const template = `
 Shims provided by this addon
 ----------------------------
@@ -58,34 +60,39 @@ Shims provided by this addon
 import <%= shims[key]['default'].split(\'.\')[shims[key]['default'].split('.').length-1] %> from \`<%= key %>\`;<% } %>
 <%if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { %>import { <%= Object.keys(shims[key]).filter(item => item !== 'default').join(\', \') %> } from \`<%= key %>\`;
 <% } %>\`\`\`
-<%if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { %>
+<%_ if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { %>
 Named exports of \`<%= key %>\`
 
-<% Object.keys(shims[key]).filter(item => item !== 'default').map((exportName) => { -%> <%if (shims[key][exportName]) { %> 
+<% Object.keys(shims[key]).filter(item => item !== 'default').map((exportName) => { -%> <%if (shims[key][exportName]) { %>
 - \`<%= shims[key][exportName].split(\'.\')[shims[key][exportName].split('.').length-1] %>\` <%= shims[key][exportName] %>
-<% } %>
-<% }); -%>
-<% } %>
+      <%_ } -%>
+    <%_ }); -%>
+  <%_ } -%>
 
-<% }); -%>
-`;
+<% }); -%>`;
 
 const renderedShims = ejs.render(template, {
   shims: listEmberCliShims(),
 });
 
-// @TODO Insert `renderedShims` into README between `<!--[begin-apidocs]-->` and `<!--[end-apidocs]-->`,
-// replacing existing content.
-console.log(renderedShims);
 
+// Update README.md
+try {
+  const filepath = join(__dirname, '..', 'README.md');
+  const readme = readFileSync(filepath, { encoding: 'utf-8' }).toString();
+  const [before, resplit] = readme.split('<!--[begin-apidocs]-->');
+  const [, after] = resplit.split('<!--[end-apidocs]-->');
 
-// generate md file
-const filepath = 'cheatsheet.md';
-const fs = require('fs');
-fs.openSync(filepath, 'w');
-fs.writeFile(filepath, renderedShims, function(err) {
-  if (err) {
-    return console.log(err);
-  }
-  console.log('The file was saved!');
-});
+  const reconstructedReadme = [
+    before,
+    '<!--[begin-apidocs]-->\n',
+    renderedShims,
+    '<!--[end-apidocs]-->',
+    after,
+  ].join('');
+
+  openSync(filepath, 'w');
+  writeFileSync(filepath, reconstructedReadme, { encoding: 'utf-8' });
+} catch (err) {
+  console.error('Error updating README.md', err);
+}
