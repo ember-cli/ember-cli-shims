@@ -51,11 +51,11 @@ const template = `
 Shims provided by this addon
 ----------------------------
 
-<% Object.entries(shims).map(([key, shim]) => { -%>
+<% Object.keys(shims).map((key) => { -%>
 ### \`<%= key %>\`
 
-<% Object.entries(shim).map(([exportName, originalPath]) => { -%>
-- \`<%= exportName %>\` <%= originalPath %>
+<% Object.keys(shims[key]).map((exportName) => { -%>
+- \`<%= exportName %>\` <%= shims[key][exportName] %>
 <% }); -%>
 
 <% }); -%>
