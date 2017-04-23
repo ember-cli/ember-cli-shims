@@ -8,28 +8,28 @@ Shims provided by this addon
 import Ember from `ember`;
 ```
 
----
+
 ### ember-application
 ```javascript 
 // Ember.Application
 import Application from `ember-application`;
 ```
 
----
+
 ### ember-array
 ```javascript 
 // Ember.Array
 import Array from `ember-array`;
 ```
 
----
+
 ### ember-array/mutable
 ```javascript 
 // Ember.MutableArray
 import MutableArray from `ember-array/mutable`;
 ```
 
----
+
 ### ember-array/utils
 ```javascript 
 import { A, isEmberArray, wrap } from `ember-array/utils`;
@@ -47,63 +47,63 @@ Named exports of `ember-array/utils`
 - `makeArray` Ember.makeArray
 
 
----
+
 ### ember-component
 ```javascript 
 // Ember.Component
 import Component from `ember-component`;
 ```
 
----
+
 ### ember-components/checkbox
 ```javascript 
 // Ember.Checkbox
 import Checkbox from `ember-components/checkbox`;
 ```
 
----
+
 ### ember-components/text-area
 ```javascript 
 // Ember.TextArea
 import TextArea from `ember-components/text-area`;
 ```
 
----
+
 ### ember-components/text-field
 ```javascript 
 // Ember.TextField
 import TextField from `ember-components/text-field`;
 ```
 
----
+
 ### ember-controller
 ```javascript 
 // Ember.Controller
 import Controller from `ember-controller`;
 ```
 
----
+
 ### ember-controller/inject
 ```javascript 
 // Ember.inject.controller
 import controller from `ember-controller/inject`;
 ```
 
----
+
 ### ember-controller/proxy
 ```javascript 
 // Ember.ArrayProxy
 import ArrayProxy from `ember-controller/proxy`;
 ```
 
----
+
 ### ember-controllers/sortable
 ```javascript 
 // Ember.SortableMixin
 import SortableMixin from `ember-controllers/sortable`;
 ```
 
----
+
 ### ember-debug
 ```javascript 
 import { log, inspect, run, warn } from `ember-debug`;
@@ -124,21 +124,21 @@ Named exports of `ember-debug`
 - `warn` Ember.warn
 
 
----
+
 ### ember-debug/container-debug-adapter
 ```javascript 
 // Ember.ContainerDebugAdapter
 import ContainerDebugAdapter from `ember-debug/container-debug-adapter`;
 ```
 
----
+
 ### ember-debug/data-adapter
 ```javascript 
 // Ember.DataAdapter
 import DataAdapter from `ember-debug/data-adapter`;
 ```
 
----
+
 ### ember-deprecations
 ```javascript 
 import { deprecate, deprecateFunc } from `ember-deprecations`;
@@ -153,35 +153,35 @@ Named exports of `ember-deprecations`
 - `deprecateFunc` Ember.deprecateFunc
 
 
----
+
 ### ember-enumerable
 ```javascript 
 // Ember.Enumerable
 import Enumerable from `ember-enumerable`;
 ```
 
----
+
 ### ember-evented
 ```javascript 
 // Ember.Evented
 import Evented from `ember-evented`;
 ```
 
----
+
 ### ember-evented/on
 ```javascript 
 // Ember.on
 import on from `ember-evented/on`;
 ```
 
----
+
 ### ember-globals-resolver
 ```javascript 
 // Ember.DefaultResolver
 import DefaultResolver from `ember-globals-resolver`;
 ```
 
----
+
 ### ember-helper
 ```javascript 
 // Ember.Helper
@@ -193,7 +193,7 @@ Named exports of `ember-helper`
 
  
 
----
+
 ### ember-instrumentation
 ```javascript 
 import { instrument, reset, subscribe, unsubscribe } from `ember-instrumentation`;
@@ -214,28 +214,28 @@ Named exports of `ember-instrumentation`
 - `unsubscribe` Ember.Instrumentation.unsubscribe
 
 
----
+
 ### ember-locations/hash
 ```javascript 
 // Ember.HashLocation
 import HashLocation from `ember-locations/hash`;
 ```
 
----
+
 ### ember-locations/history
 ```javascript 
 // Ember.HistoryLocation
 import HistoryLocation from `ember-locations/history`;
 ```
 
----
+
 ### ember-locations/none
 ```javascript 
 // Ember.NoneLocation
 import NoneLocation from `ember-locations/none`;
 ```
 
----
+
 ### ember-map
 ```javascript 
 // Ember.Map
@@ -249,14 +249,14 @@ Named exports of `ember-map`
 - `MapWithDefault` Ember.MapWithDefault
 
 
----
+
 ### ember-metal/destroy
 ```javascript 
 // Ember.destroy
 import destroy from `ember-metal/destroy`;
 ```
 
----
+
 ### ember-metal/events
 ```javascript 
 import { addListener, removeListener, send } from `ember-metal/events`;
@@ -274,7 +274,7 @@ Named exports of `ember-metal/events`
 - `sendEvent` Ember.sendEvent
 
 
----
+
 ### ember-metal/get
 ```javascript 
 // Ember.get
@@ -288,14 +288,14 @@ Named exports of `ember-metal/get`
 - `getProperties` Ember.getProperties
 
 
----
+
 ### ember-metal/mixin
 ```javascript 
 // Ember.Mixin
 import Mixin from `ember-metal/mixin`;
 ```
 
----
+
 ### ember-metal/observer
 ```javascript 
 // Ember.observer
@@ -312,7 +312,7 @@ Named exports of `ember-metal/observer`
 - `removeObserver` Ember.removeObserver
 
 
----
+
 ### ember-metal/on-load
 ```javascript 
 // Ember.onLoad
@@ -326,7 +326,7 @@ Named exports of `ember-metal/on-load`
 - `runLoadHooks` Ember.runLoadHooks
 
 
----
+
 ### ember-metal/set
 ```javascript 
 // Ember.set
@@ -343,7 +343,7 @@ Named exports of `ember-metal/set`
 - `trySet` Ember.trySet
 
 
----
+
 ### ember-metal/utils
 ```javascript 
 import { aliasMethod, assert, cacheFor, copy, guidFor } from `ember-metal/utils`;
@@ -367,28 +367,28 @@ Named exports of `ember-metal/utils`
 - `guidFor` Ember.guidFor
 
 
----
+
 ### ember-object
 ```javascript 
 // Ember.Object
 import Object from `ember-object`;
 ```
 
----
+
 ### ember-owner/get
 ```javascript 
 // Ember.getOwner
 import getOwner from `ember-owner/get`;
 ```
 
----
+
 ### ember-owner/set
 ```javascript 
 // Ember.setOwner
 import setOwner from `ember-owner/set`;
 ```
 
----
+
 ### ember-platform
 ```javascript 
 import { assign, create, defineProperty, hasAccessors, keys } from `ember-platform`;
@@ -412,21 +412,21 @@ Named exports of `ember-platform`
 - `keys` Ember.keys
 
 
----
+
 ### ember-route
 ```javascript 
 // Ember.Route
 import Route from `ember-route`;
 ```
 
----
+
 ### ember-router
 ```javascript 
 // Ember.Router
 import Router from `ember-router`;
 ```
 
----
+
 ### ember-runloop
 ```javascript 
 // Ember.run
@@ -473,28 +473,28 @@ Named exports of `ember-runloop`
 - `throttle` Ember.run.throttle
 
 
----
+
 ### ember-service
 ```javascript 
 // Ember.Service
 import Service from `ember-service`;
 ```
 
----
+
 ### ember-service/inject
 ```javascript 
 // Ember.inject.service
 import service from `ember-service/inject`;
 ```
 
----
+
 ### ember-set/ordered
 ```javascript 
 // Ember.OrderedSet
 import OrderedSet from `ember-set/ordered`;
 ```
 
----
+
 ### ember-string
 ```javascript 
 import { camelize, capitalize, classify, dasherize, decamelize, fmt, htmlSafe, loc, underscore, w } from `ember-string`;
@@ -533,7 +533,7 @@ Named exports of `ember-string`
 - `w` Ember.String.w
 
 
----
+
 ### ember-utils
 ```javascript 
 import { isBlank, isEmpty, isNone, isPresent, tryInvoke, typeOf } from `ember-utils`;
@@ -560,7 +560,7 @@ Named exports of `ember-utils`
 - `typeOf` Ember.typeOf
 
 
----
+
 ### ember-computed
 ```javascript 
 // Ember.computed
@@ -670,39 +670,39 @@ Named exports of `ember-computed`
 - `intersect` Ember.computed.intersect
 
 
----
+
 ### ember-test
 ```javascript 
 // Ember.Test
 import Test from `ember-test`;
 ```
 
----
+
 ### ember-test/adapter
 ```javascript 
 // Ember.Test.Adapter
 import Adapter from `ember-test/adapter`;
 ```
 
----
+
 ### ember-test/qunit-adapter
 ```javascript 
 // Ember.Test.QUnitAdapter
 import QUnitAdapter from `ember-test/qunit-adapter`;
 ```
 
----
+
 ### jquery
 ```javascript 
 // self.jQuery
 import jQuery from `jquery`;
 ```
 
----
+
 ### rsvp
 ```javascript 
 // Ember.RSVP
 import RSVP from `rsvp`;
 ```
 
----
+
