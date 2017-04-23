@@ -50,25 +50,25 @@ function listEmberCliShims() {
 const template = `
 Shims provided by this addon
 ----------------------------
-
 <% Object.keys(shims).map((key) => { -%>
-### <%= key %>
-\`\`\`javascript <%if (Object.keys(shims[key]).includes('default')) { %>
-// <%= shims[key]['default'] %>
-import <%= shims[key]['default'].split(\'.\')[shims[key]['default'].split('.').length-1] %> from \`<%= key %>\`;<% } %>
-<%if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { %>import { <%= Object.keys(shims[key]).filter(item => item !== 'default').join(\', \') %> } from \`<%= key %>\`;
-<% } %>\`\`\`
-<%if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { %>
-Named exports of \`<%= key %>\`
-
-<% Object.keys(shims[key]).filter(item => item !== 'default').map((exportName) => { -%> <%if (shims[key][exportName]) { %> 
-- \`<%= shims[key][exportName].split(\'.\')[shims[key][exportName].split('.').length-1] %>\` <%= shims[key][exportName] %>
+### <%= key -%> 
+\`\`\`javascript 
+<%if (Object.keys(shims[key]).includes('default')) { -%>
+// <%= shims[key]['default'] -%>
+import <%= shims[key]['default'].split(\'.\')[shims[key]['default'].split('.').length-1] -%> from \`<%= key -%>\`;<% } -%>
+<%if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { -%>
+import { <%= Object.keys(shims[key]).filter(item => item !== 'default').join(\', \') -%> } from \`<%= key -%>\`;<%= -%>
 <% } %>
+\`\`\`
+<%if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { -%>
+Named exports of \`<%= key -%>\`
+<% Object.keys(shims[key]).filter(item => item !== 'default').map((exportName) => { -%>
+<%if (shims[key][exportName]) { -%>
+- \`<%= shims[key][exportName].split(\'.\')[shims[key][exportName].split('.').length-1] -%>\` <%= shims[key][exportName] %>
+<% } -%>
 <% }); -%>
-<% } %>
-
-<% }); -%>
-`;
+<% } -%>
+<% }); -%>`;
 
 const renderedShims = ejs.render(template, {
   shims: listEmberCliShims(),
