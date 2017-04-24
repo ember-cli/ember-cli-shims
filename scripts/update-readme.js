@@ -10,8 +10,6 @@ function handlerFactory(path = '') {
   }
 }
 
-const obj = {};
-
 function listEmberCliShims() {
   global.Ember = new Proxy([
     'inject',
@@ -27,7 +25,7 @@ function listEmberCliShims() {
     return acc;
   }, { _key: 'Ember' }), handlerFactory('Ember'));
 
-  const defined = {};
+  const defined = [];
 
   global.define = (name, [], cb) => {
     const val = cb();
@@ -36,7 +34,24 @@ function listEmberCliShims() {
       val.default = val.default._key;
     }
 
-    defined[name] = val;
+    const defaultExport = val.default;
+    delete val.default;
+
+    const namedExports = Object.keys(val).map((key) => ({
+      name: key,
+      target: val[key],
+    })).sort((a, b) => {
+      a = a.name.toLowerCase();
+      b = b.name.toLowerCase();
+
+      return (a < b) ? -1 : (a > b) ? 1 : 0;
+    });
+
+    defined.push({
+      name,
+      defaultExport,
+      namedExports,
+    });
   };
 
   global.self = {
@@ -45,36 +60,56 @@ function listEmberCliShims() {
 
   require('../vendor/ember-cli-shims/app-shims');
 
-  return defined;
+  return defined.sort((a, b) => {
+    a = a.name.toLowerCase();
+    b = b.name.toLowerCase();
+
+    return (a < b) ? -1 : (a > b) ? 1 : 0;
+  });
 }
 
-// @TODO Sort shims before pushing into template
 const template = `
 Shims provided by this addon
 ----------------------------
+<% shims.forEach(shim => { %>
+### <%= shim.name %>
 
-<% Object.keys(shims).map((key) => { -%>
-### <%= key %>
-\`\`\`javascript <%if (Object.keys(shims[key]).includes('default')) { %>
-// <%= shims[key]['default'] %>
-import <%= shims[key]['default'].split(\'.\')[shims[key]['default'].split('.').length-1] %> from \`<%= key %>\`;<% } %>
-<%if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { %>import { <%= Object.keys(shims[key]).filter(item => item !== 'default').join(\', \') %> } from \`<%= key %>\`;
-<% } %>\`\`\`
-<%_ if (Object.keys(shims[key]).filter(item => item !== 'default').length > 0) { %>
-Named exports of \`<%= key %>\`
+\`\`\`javascript
+  <%_ if (shim.defaultExport) { -%>
+// <%= shim.defaultExport %>
+import <%= importMappings[getLastSegment(shim.defaultExport)] || getLastSegment(shim.defaultExport) %> from '<%= shim.name %>';
+  <%_ } -%>
+  <%_ if (shim.namedExports.length > 0) { -%>
+import { <%= shim.namedExports.map(exp => exp.name).join(', ') %> } from '<%= shim.name %>';
+  <%_ } -%>
+\`\`\`
+  <%_ if (shim.namedExports.length > 0) { -%>
 
-<% Object.keys(shims[key]).filter(item => item !== 'default').map((exportName) => { -%> <%if (shims[key][exportName]) { %>
-- \`<%= shims[key][exportName].split(\'.\')[shims[key][exportName].split('.').length-1] %>\` <%= shims[key][exportName] %>
-      <%_ } -%>
+    <%_ shim.namedExports.forEach(namedExport => { -%>
+- \`<%= namedExport.name %>\` <%= namedExport.target %>
     <%_ }); -%>
   <%_ } -%>
-
-<% }); -%>`;
+<%_ }); -%>`;
 
 const renderedShims = ejs.render(template, {
   shims: listEmberCliShims(),
-});
 
+  getLastSegment(str, split = '.') {
+    if (!str) {
+      return undefined;
+    }
+
+    const segments = str.split(split);
+
+    return segments[segments.length - 1];
+  },
+
+  importMappings: {
+    'Array': 'EmberArray',
+    'Map': 'EmberMap',
+    'Object': 'EmberObject',
+  },
+});
 
 // Update README.md
 try {
@@ -87,7 +122,7 @@ try {
     before,
     '<!--[begin-apidocs]-->\n',
     renderedShims,
-    '<!--[end-apidocs]-->',
+    '\n<!--[end-apidocs]-->',
     after,
   ].join('');
 
