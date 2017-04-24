@@ -301,7 +301,7 @@ import Helper from 'ember-helper';
 import { helper } from 'ember-helper';
 ```
 
-- `helper` 
+- `helper` Ember.Helper.helper
 
 ### ember-instrumentation
 
