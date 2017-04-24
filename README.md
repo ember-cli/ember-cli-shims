@@ -113,7 +113,7 @@ import Application from 'ember-application';
 
 ```javascript
 // Ember.Array
-import Array from 'ember-array';
+import EmberArray from 'ember-array';
 ```
 
 ### ember-array/mutable
@@ -128,8 +128,6 @@ import MutableArray from 'ember-array/mutable';
 ```javascript
 import { A, isEmberArray, wrap } from 'ember-array/utils';
 ```
-
-Named exports of `ember-array/utils`
 
 - `A` Ember.A
 - `isEmberArray` Ember.isArray
@@ -170,8 +168,6 @@ import TextField from 'ember-components/text-field';
 import computed from 'ember-computed';
 import { alias, and, bool, collect, deprecatingAlias, empty, equal, filter, filterBy, filterProperty, gt, gte, intersect, lt, lte, map, mapBy, mapProperty, match, max, min, none, not, notEmpty, oneWay, or, readOnly, reads, setDiff, sort, sum, union, uniq } from 'ember-computed';
 ```
-
-Named exports of `ember-computed`
 
 - `alias` Ember.computed.alias
 - `and` Ember.computed.and
@@ -241,8 +237,6 @@ import SortableMixin from 'ember-controllers/sortable';
 import { inspect, log, run, warn } from 'ember-debug';
 ```
 
-Named exports of `ember-debug`
-
 - `inspect` Ember.inspect
 - `log` Ember.debug
 - `run` Ember.runInDebug
@@ -267,8 +261,6 @@ import DataAdapter from 'ember-debug/data-adapter';
 ```javascript
 import { deprecate, deprecateFunc } from 'ember-deprecations';
 ```
-
-Named exports of `ember-deprecations`
 
 - `deprecate` Ember.deprecate
 - `deprecateFunc` Ember.deprecateFunc
@@ -309,8 +301,6 @@ import Helper from 'ember-helper';
 import { helper } from 'ember-helper';
 ```
 
-Named exports of `ember-helper`
-
 - `helper` 
 
 ### ember-instrumentation
@@ -318,8 +308,6 @@ Named exports of `ember-helper`
 ```javascript
 import { instrument, reset, subscribe, unsubscribe } from 'ember-instrumentation';
 ```
-
-Named exports of `ember-instrumentation`
 
 - `instrument` Ember.Instrumentation.instrument
 - `reset` Ember.Instrumentation.reset
@@ -351,11 +339,9 @@ import NoneLocation from 'ember-locations/none';
 
 ```javascript
 // Ember.Map
-import Map from 'ember-map';
+import EmberMap from 'ember-map';
 import { withDefault } from 'ember-map';
 ```
-
-Named exports of `ember-map`
 
 - `withDefault` Ember.MapWithDefault
 
@@ -372,8 +358,6 @@ import destroy from 'ember-metal/destroy';
 import { addListener, removeListener, send } from 'ember-metal/events';
 ```
 
-Named exports of `ember-metal/events`
-
 - `addListener` Ember.addListener
 - `removeListener` Ember.removeListener
 - `send` Ember.sendEvent
@@ -385,8 +369,6 @@ Named exports of `ember-metal/events`
 import get from 'ember-metal/get';
 import { getProperties } from 'ember-metal/get';
 ```
-
-Named exports of `ember-metal/get`
 
 - `getProperties` Ember.getProperties
 
@@ -405,8 +387,6 @@ import observer from 'ember-metal/observer';
 import { addObserver, removeObserver } from 'ember-metal/observer';
 ```
 
-Named exports of `ember-metal/observer`
-
 - `addObserver` Ember.addObserver
 - `removeObserver` Ember.removeObserver
 
@@ -418,8 +398,6 @@ import onLoad from 'ember-metal/on-load';
 import { run } from 'ember-metal/on-load';
 ```
 
-Named exports of `ember-metal/on-load`
-
 - `run` Ember.runLoadHooks
 
 ### ember-metal/set
@@ -430,8 +408,6 @@ import set from 'ember-metal/set';
 import { setProperties, trySet } from 'ember-metal/set';
 ```
 
-Named exports of `ember-metal/set`
-
 - `setProperties` Ember.setProperties
 - `trySet` Ember.trySet
 
@@ -440,8 +416,6 @@ Named exports of `ember-metal/set`
 ```javascript
 import { aliasMethod, assert, cacheFor, copy, guidFor } from 'ember-metal/utils';
 ```
-
-Named exports of `ember-metal/utils`
 
 - `aliasMethod` Ember.aliasMethod
 - `assert` Ember.assert
@@ -453,7 +427,7 @@ Named exports of `ember-metal/utils`
 
 ```javascript
 // Ember.Object
-import Object from 'ember-object';
+import EmberObject from 'ember-object';
 ```
 
 ### ember-owner/get
@@ -475,8 +449,6 @@ import setOwner from 'ember-owner/set';
 ```javascript
 import { assign, create, defineProperty, hasAccessors, keys } from 'ember-platform';
 ```
-
-Named exports of `ember-platform`
 
 - `assign` Ember.assign
 - `create` Ember.create
@@ -505,8 +477,6 @@ import Router from 'ember-router';
 import run from 'ember-runloop';
 import { begin, bind, cancel, debounce, end, join, later, next, once, schedule, scheduleOnce, throttle } from 'ember-runloop';
 ```
-
-Named exports of `ember-runloop`
 
 - `begin` Ember.run.begin
 - `bind` Ember.run.bind
@@ -548,8 +518,6 @@ import OrderedSet from 'ember-set/ordered';
 import { camelize, capitalize, classify, dasherize, decamelize, fmt, htmlSafe, loc, underscore, w } from 'ember-string';
 ```
 
-Named exports of `ember-string`
-
 - `camelize` Ember.String.camelize
 - `capitalize` Ember.String.capitalize
 - `classify` Ember.String.classify
@@ -587,8 +555,6 @@ import QUnitAdapter from 'ember-test/qunit-adapter';
 ```javascript
 import { isBlank, isEmpty, isNone, isPresent, tryInvoke, typeOf } from 'ember-utils';
 ```
-
-Named exports of `ember-utils`
 
 - `isBlank` Ember.isBlank
 - `isEmpty` Ember.isEmpty

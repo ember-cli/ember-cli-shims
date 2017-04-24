@@ -10,8 +10,6 @@ function handlerFactory(path = '') {
   }
 }
 
-const obj = {};
-
 function listEmberCliShims() {
   global.Ember = new Proxy([
     'inject',
@@ -79,15 +77,13 @@ Shims provided by this addon
 \`\`\`javascript
   <%_ if (shim.defaultExport) { -%>
 // <%= shim.defaultExport %>
-import <%= getLastSegment(shim.defaultExport) %> from '<%= shim.name %>';
+import <%= importMappings[getLastSegment(shim.defaultExport)] || getLastSegment(shim.defaultExport) %> from '<%= shim.name %>';
   <%_ } -%>
   <%_ if (shim.namedExports.length > 0) { -%>
 import { <%= shim.namedExports.map(exp => exp.name).join(', ') %> } from '<%= shim.name %>';
   <%_ } -%>
 \`\`\`
   <%_ if (shim.namedExports.length > 0) { -%>
-
-Named exports of \`<%= shim.name %>\`
 
     <%_ shim.namedExports.forEach(namedExport => { -%>
 - \`<%= namedExport.name %>\` <%= namedExport.target %>
@@ -106,6 +102,12 @@ const renderedShims = ejs.render(template, {
     const segments = str.split(split);
 
     return segments[segments.length - 1];
+  },
+
+  importMappings: {
+    'Array': 'EmberArray',
+    'Map': 'EmberMap',
+    'Object': 'EmberObject',
   },
 });
 
