@@ -19,6 +19,7 @@ function listEmberCliShims() {
     'String',
     'computed',
     'Test',
+    'Helper'
   ].reduce((acc, key) => {
     acc[key] = new Proxy({ _key: `Ember.${key}` }, handlerFactory(`Ember.${key}`));
 
