@@ -5,7 +5,7 @@ const { join } = require('path');
 function handlerFactory(path = '') {
   return {
     get(target, name) {
-      return name in target? target[name] : `${path}.${name.toString()}`;
+      return name in target ? target[name] : `${path}.${name.toString()}`;
     },
   }
 }
