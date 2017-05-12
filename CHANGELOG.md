@@ -1,5 +1,19 @@
 # Change Log
 
+## [v1.2.0-beta.1](https://github.com/ember-cli/ember-cli-shims/tree/v1.2.0-beta.1) (2017-05-12)
+[Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v1.1.0...v1.2.0-beta.1)
+
+**Closed issues:**
+
+- Generate an easy to read list of all shims included from the source [\#88](https://github.com/ember-cli/ember-cli-shims/issues/88)
+- An in-range update of ember-ajax is breaking the build 🚨 [\#86](https://github.com/ember-cli/ember-cli-shims/issues/86)
+
+**Merged pull requests:**
+
+- Update dependencies and fix the build [\#111](https://github.com/ember-cli/ember-cli-shims/pull/111) ([Turbo87](https://github.com/Turbo87))
+- CI: Release git tags automatically [\#110](https://github.com/ember-cli/ember-cli-shims/pull/110) ([Turbo87](https://github.com/Turbo87))
+- Implement new module shims [\#92](https://github.com/ember-cli/ember-cli-shims/pull/92) ([martndemus](https://github.com/martndemus))
+
 ## [v1.1.0](https://github.com/ember-cli/ember-cli-shims/tree/v1.1.0) (2017-03-24)
 [Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v1.0.2...v1.1.0)
 
