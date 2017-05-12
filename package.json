@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "ember-cli-babel": "^6.1.0",
-    "ember-cli-version-checker": "^1.2.0",
+    "ember-cli-version-checker": "^2.0.0",
     "silent-error": "^1.0.1"
   },
   "devDependencies": {
