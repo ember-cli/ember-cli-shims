@@ -1,5 +1,23 @@
 # Change Log
 
+## [v1.2.0-beta.2](https://github.com/ember-cli/ember-cli-shims/tree/v1.2.0-beta.2) (2017-05-17)
+[Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v1.2.0-beta.1...v1.2.0-beta.2)
+
+**Fixed bugs:**
+
+- CI: Remove "--skip-cleanup" flag from ember-try call [\#114](https://github.com/ember-cli/ember-cli-shims/pull/114) ([Turbo87](https://github.com/Turbo87))
+
+**Closed issues:**
+
+- Ember.LinkComponent should be exported [\#77](https://github.com/ember-cli/ember-cli-shims/issues/77)
+- Why is isArray called isEmberArray [\#27](https://github.com/ember-cli/ember-cli-shims/issues/27)
+
+**Merged pull requests:**
+
+- chore\(package\): update ember-cli-htmlbars to version 2.0.1 [\#115](https://github.com/ember-cli/ember-cli-shims/pull/115) ([Turbo87](https://github.com/Turbo87))
+- Update ember-cli-dependency-checker to the latest version 🚀 [\#113](https://github.com/ember-cli/ember-cli-shims/pull/113) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+- Remove allowed failure for ember-beta channel. [\#112](https://github.com/ember-cli/ember-cli-shims/pull/112) ([rwjblue](https://github.com/rwjblue))
+
 ## [v1.2.0-beta.1](https://github.com/ember-cli/ember-cli-shims/tree/v1.2.0-beta.1) (2017-05-12)
 [Full Changelog](https://github.com/ember-cli/ember-cli-shims/compare/v1.1.0...v1.2.0-beta.1)
 
