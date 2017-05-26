@@ -198,7 +198,7 @@
 
     // populate `ember/computed` named exports
     shims['ember-computed'] = {
-      'default': Ember.computed
+      'default': 'Ember.computed'
     };
     var computedMacros = [
       "empty","notEmpty", "none", "not", "bool", "match",
