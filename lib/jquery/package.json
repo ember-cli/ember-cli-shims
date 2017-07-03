@@ -1,9 +1,0 @@
-{
-  "name": "jquery",
-  "keywords": [
-    "ember-addon"
-  ],
-  "dependencies": {
-    "ember-cli-babel": "*"
-  }
-}

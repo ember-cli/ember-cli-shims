@@ -39,11 +39,6 @@
     "node": ">= 4"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config",
-    "paths": [
-      "lib/ember",
-      "lib/jquery",
-      "lib/rsvp"
-    ]
+    "configPath": "tests/dummy/config"
   }
 }
