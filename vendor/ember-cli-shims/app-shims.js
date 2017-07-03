@@ -215,7 +215,7 @@
     }
 
     for (var moduleName in shims) {
-      generateModule(moduleName, shims[moduleName], true);
+      generateModule(moduleName, shims[moduleName]);
     }
   }
 
@@ -260,4 +260,6 @@
   generateModule('ember', { default: Ember });
   processEmberShims();
   processTestShims();
+  generateModule('jquery', { 'default': self.jQuery });
+  generateModule('rsvp', { 'default': Ember.RSVP });
 })();
