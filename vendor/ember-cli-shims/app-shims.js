@@ -215,7 +215,7 @@
     }
 
     for (var moduleName in shims) {
-      generateModule(moduleName, shims[moduleName]);
+      generateModule(moduleName, shims[moduleName], true);
     }
   }
 
