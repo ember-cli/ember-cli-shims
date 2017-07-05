@@ -215,7 +215,7 @@
     }
 
     for (var moduleName in shims) {
-      generateModule(moduleName, shims[moduleName]);
+      generateModule(moduleName, shims[moduleName], true);
     }
   }
 
@@ -240,14 +240,36 @@
   }
 
   function generateModule(name, values, deprecated) {
-    define(name, [], function() {
+    define(name, ['ember-rfc176-data/old-shims'], function(moduleMaps) {
       'use strict';
 
-      Ember.deprecate('Importing the module `' + name +'` has been deprecated. Please use the new module imports.', !deprecated, {
-        id: 'ember-cli-shims.deprecated-shims',
-        until: '3.0.0',
-        url: 'https://github.com/emberjs/rfcs/blob/master/text/0176-javascript-module-api.md'
-      });
+      if (deprecated) {
+        var moduleMap = moduleMaps[name];
+
+        var message = 'Importing from the `' + name + '` module has been deprecated. ';
+        if (moduleMap.default) {
+          message += 'Please use the new module imports:\n\n';
+          Object.keys(moduleMap).forEach(function(key) {
+            var newImport = moduleMap[key];
+            if (newImport[1]) {
+              message += 'import { ' + newImport[1] + ' } from \'' + newImport[0] + '\'\n';
+            } else {
+              var importName = Ember.String.classify(newImport[0].split('/').pop());
+              message += 'import ' + importName + ' from \'' + newImport[0] + '\'\n';
+            }
+          });
+          message += '\n';
+
+        } else {
+          message += 'Please use globals instead.';
+        }
+
+        Ember.deprecate(message, false, {
+          id: 'ember-cli-shims.deprecated-shims',
+          until: '3.0.0',
+          url: 'https://github.com/emberjs/rfcs/blob/master/text/0176-javascript-module-api.md'
+        });
+      }
 
       Object.defineProperty(values, '__esModule', {
         value: true

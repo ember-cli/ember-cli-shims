@@ -1,7 +1,10 @@
 /* eslint-env node */
 'use strict';
 
+var path = require('path');
 var SilentError = require('silent-error');
+var writeFile = require('broccoli-file-creator');
+var MergeTrees = require('broccoli-merge-trees');
 
 module.exports = {
   name: 'ember-cli-shims',
@@ -33,13 +36,35 @@ module.exports = {
     // their own legacy shims system, so this import is not needed with
     // those ember-source versions
     if (!emberSourceIncludesLegacyShims && emberCLISupportsOverridingShims) {
-      var assetPath = 'vendor/ember-cli-shims/app-shims.js';
       if (this.import) {
-        this.import(assetPath);
+        this.import('vendor/ember-rfc176-data/old-shims.js');
+        this.import('vendor/ember-cli-shims/app-shims.js');
       } else {
-        app.import(assetPath);
+        app.import('vendor/ember-rfc176-data/old-shims.js');
+        app.import('vendor/ember-cli-shims/app-shims.js');
       }
     }
 
-  }
+  },
+
+  treeForVendor(vendorTree) {
+    var oldShims = require('ember-rfc176-data/old-shims.json');
+    var rfc176Tree = writeFile('ember-rfc176-data/old-shims.js', wrapJson('ember-rfc176-data/old-shims', oldShims));
+
+    return new MergeTrees([vendorTree, rfc176Tree]);
+  },
 };
+
+function wrapJson(name, json) {
+  return `(function() {
+  define('${name}', [], function() {
+    var values = ${JSON.stringify(json)};
+    
+    Object.defineProperty(values, '__esModule', {
+      value: true
+    });
+
+    return values;
+  });
+})();`
+}
