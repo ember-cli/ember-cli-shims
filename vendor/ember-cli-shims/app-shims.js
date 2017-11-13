@@ -207,7 +207,7 @@
       "and", "or", "collect", "sum", "min", "max",
       "map", "sort", "setDiff", "mapBy", "mapProperty",
       "filter", "filterBy", "filterProperty", "uniq",
-      "union", "intersect"
+      "uniqBy", "union", "intersect"
     ];
     for (var i = 0, l = computedMacros.length; i < l; i++) {
       var key = computedMacros[i];
