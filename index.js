@@ -37,10 +37,10 @@ module.exports = {
     // those ember-source versions
     if (!emberSourceIncludesLegacyShims && emberCLISupportsOverridingShims) {
       if (this.import) {
-        this.import('vendor/ember-rfc176-data/old-shims.js');
+        this.import('vendor/ember-cli-shims/deprecations.js');
         this.import('vendor/ember-cli-shims/app-shims.js');
       } else {
-        app.import('vendor/ember-rfc176-data/old-shims.js');
+        app.import('vendor/ember-cli-shims/deprecations.js');
         app.import('vendor/ember-cli-shims/app-shims.js');
       }
     }
@@ -48,8 +48,8 @@ module.exports = {
   },
 
   treeForVendor(vendorTree) {
-    var oldShims = require('ember-rfc176-data/old-shims.json');
-    var rfc176Tree = writeFile('ember-rfc176-data/old-shims.js', wrapJson('ember-rfc176-data/old-shims', oldShims));
+    var deprecations = require('./deprecations');
+    var rfc176Tree = writeFile('ember-cli-shims/deprecations.js', wrapJson('ember-cli-shims/deprecations', deprecations));
 
     return new MergeTrees([vendorTree, rfc176Tree]);
   },
