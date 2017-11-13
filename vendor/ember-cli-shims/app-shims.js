@@ -240,17 +240,17 @@
   }
 
   function generateModule(name, values, deprecated) {
-    define(name, ['ember-rfc176-data/old-shims'], function(moduleMaps) {
+    define(name, ['ember-cli-shims/deprecations'], function(deprecations) {
       'use strict';
 
       if (deprecated) {
-        var moduleMap = moduleMaps[name];
+        var moduleDeprecations = deprecations[name];
 
         var message = 'Importing from the `' + name + '` module has been deprecated. ';
-        if (moduleMap.default) {
+        if (moduleDeprecations) {
           message += 'Please use the new module imports:\n\n';
-          Object.keys(moduleMap).forEach(function(key) {
-            var newImport = moduleMap[key];
+          Object.keys(moduleDeprecations).forEach(function(key) {
+            var newImport = moduleDeprecations[key];
             if (newImport[1]) {
               message += 'import { ' + newImport[1] + ' } from \'' + newImport[0] + '\'\n';
             } else {
