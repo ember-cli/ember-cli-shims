@@ -33,9 +33,6 @@ matrix:
   fast_finish: true
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
-    # https://github.com/ember-cli/ember-try/issues/161
-    - env: EMBER_TRY_SCENARIO=ember-default
-    - env: EMBER_TRY_SCENARIO=ember-lts-2.12
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
