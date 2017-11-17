@@ -1,10 +1,13 @@
 # Change Log
 
-## Unreleased (2017-11-17)
+## v1.2.0 (2017-11-17)
 
 #### :rocket: Enhancement
 * [#129](https://github.com/ember-cli/ember-cli-shims/pull/129) Improved deprecation warnings. ([@Turbo87](https://github.com/Turbo87))
 * [#127](https://github.com/ember-cli/ember-cli-shims/pull/127) Revert shim modules in favor of babel plugin based polyfill.. ([@rwjblue](https://github.com/rwjblue))
+
+#### :memo: Documentation
+* [#145](https://github.com/ember-cli/ember-cli-shims/pull/145) Use `lerna-changelog` to generate changelog. ([@Turbo87](https://github.com/Turbo87))
 
 #### :house: Internal
 * [#144](https://github.com/ember-cli/ember-cli-shims/pull/144) Enable disabled ember-try scenarios. ([@Turbo87](https://github.com/Turbo87))
