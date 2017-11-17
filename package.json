@@ -14,6 +14,7 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
+    "changelog": "lerna-changelog",
     "start": "ember server",
     "test": "ember try:each"
   },
@@ -36,10 +37,21 @@
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.16.0",
+    "lerna-changelog": "^0.7.0",
     "loader.js": "^4.2.3"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
+  },
+  "changelog": {
+    "repo": "ember-cli/ember-cli-shims",
+    "labels": {
+      "breaking": ":boom: Breaking Change",
+      "enhancement": ":rocket: Enhancement",
+      "bug": ":bug: Bug Fix",
+      "documentation": ":memo: Documentation",
+      "internal": ":house: Internal"
+    }
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
