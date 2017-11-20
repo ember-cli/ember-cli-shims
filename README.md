@@ -4,7 +4,7 @@ Ember CLI Shims
 [![Greenkeeper badge](https://badges.greenkeeper.io/ember-cli/ember-cli-shims.svg)](https://greenkeeper.io/)
 
 
-NOTE: this repo is frozen until ember's public module interface has been finalized.
+**Note:  this project is deprecated.  If you are using these shims in your project you should migrate to the new modules api outlined in [RFC 176](https://github.com/emberjs/rfcs/blob/master/text/0176-javascript-module-api.md) as soon as you can.  More information on this topic in [the Ember 2.16 release blog post](https://emberjs.com/blog/2017/10/11/ember-2-16-released.html#toc_ember-js-modules-api).**
 
 About
 -----
