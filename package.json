@@ -11,7 +11,10 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {	
+    "type": "git",
+    "url": "https://github.com/ember-cli/ember-cli-shims.git"
+  },
   "scripts": {
     "build": "ember build",
     "changelog": "lerna-changelog",
